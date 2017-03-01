@@ -35,13 +35,16 @@ public class MaxCommonDivisor {
         int max = p > q ? p : q;
         int min = max == p ? q : p;
 
-        for (int i = min; i > 1; i --) {
+        for (int i = min; i > 0; i --) {
             if (min % i == 0 && max % i == 0) return i;
         }
         return 0;
     }
 
     public static void main(String[] args) {
-        System.out.println(MaxCommonDivisor.executeByPig(10, 2));
+        int max = 1000;
+        int min = 201;
+        System.out.println(MaxCommonDivisor.execute(max, min));
+        System.out.println(MaxCommonDivisor.executeByPig(max, min));
     }
 }
