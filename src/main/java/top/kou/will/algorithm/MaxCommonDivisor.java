@@ -14,8 +14,8 @@ public class MaxCommonDivisor {
      *  否则，将 p 除以 q 得到余数 r，p 和 q 的最大公约数即为 q 和 r 的最大公约数。
      */
     public static int execute(int p, int q) {
-        int max = p > q ? p : q;
-        int min = max == p ? q : p;
+        int max = Math.max(p, q);
+        int min = Math.min(p, q);
 
         if (min == 0) {
             return max;
@@ -32,8 +32,8 @@ public class MaxCommonDivisor {
      *      只要都能除尽就是公约数，由此可以求出最大公约数
      */
     public static int executeByPig(int p, int q) {
-        int max = p > q ? p : q;
-        int min = max == p ? q : p;
+        int max = Math.max(p, q);
+        int min = Math.min(p, q);
 
         for (int i = min; i > 0; i --) {
             if (min % i == 0 && max % i == 0) return i;
