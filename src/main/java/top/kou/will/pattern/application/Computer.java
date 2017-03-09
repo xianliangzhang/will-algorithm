@@ -1,7 +1,7 @@
 package top.kou.will.pattern.application;
 
-import com.sun.deploy.util.StringUtils;
-import org.springframework.util.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/9.
@@ -49,6 +49,13 @@ public class Computer {
         default boolean isFinished() {
             return task().matches("[+-]?\\d*.?\\d*");
         }
+    }
+
+    public static void main(String[] args) {
+        List<String> container = new ArrayList<String>();
+        container.add("S");
+
+        System.out.println(container instanceof List);
     }
 
 
