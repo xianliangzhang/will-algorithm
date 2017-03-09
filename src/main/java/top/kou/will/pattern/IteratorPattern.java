@@ -1,10 +1,5 @@
 package top.kou.will.pattern;
 
-import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.*;
-
 /**
  * Created by Administrator on 2017/3/9.
  * 迭代器模式：提供一个遍历成员的方法，但又不暴露成员
@@ -14,7 +9,9 @@ public class IteratorPattern {
 
     interface Iterable<E> {
         E first();
+
         E next();
+
         boolean hasNext();
     }
 
@@ -23,16 +20,16 @@ public class IteratorPattern {
         private int size = 0;
 
         public void add(E e) {
-            size ++;
+            size++;
             E[] tempContainer = (E[]) new Object[size];
             System.arraycopy(container, 0, tempContainer, 0, container.length);
-            tempContainer[size-1] = e;
+            tempContainer[size - 1] = e;
             container = tempContainer;
         }
 
         public void remove(E e) {
             int index = -1;
-            for (int i = 0; i < container.length; i ++) {
+            for (int i = 0; i < container.length; i++) {
                 if (container[i].equals(e)) {
                     index = i;
                     break;
@@ -41,7 +38,7 @@ public class IteratorPattern {
 
             if (-1 != index) {
                 E[] tempContainer = (E[]) new Object[container.length - 1];
-                for (int i = 0; i < container.length; i ++) {
+                for (int i = 0; i < container.length; i++) {
                     if (i < index) {
                         tempContainer[i] = container[i];
                     }
@@ -69,7 +66,7 @@ public class IteratorPattern {
 
                 @Override
                 public boolean hasNext() {
-                    return size == 0 ? false : i > size-1 ? false : true;
+                    return size == 0 ? false : i > size - 1 ? false : true;
                 }
             };
         }
