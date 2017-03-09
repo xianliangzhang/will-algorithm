@@ -47,6 +47,7 @@ public class IteratorPattern {
                     }
                 }
                 container = tempContainer;
+                size--;
             }
         }
 
