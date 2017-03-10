@@ -73,6 +73,13 @@ public class IteratorPattern {
         }
     }
 
+    static class Gender implements Comparable<Gender> {
+
+        @Override
+        public int compareTo(Gender o) {
+            return 0;
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         Container<Integer> container = new Container<Integer>();
@@ -90,6 +97,7 @@ public class IteratorPattern {
         while (iterable.hasNext()) {
             System.out.println(iterable.next());
         }
+
     }
 
 }
